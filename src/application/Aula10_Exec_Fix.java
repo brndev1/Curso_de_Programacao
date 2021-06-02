@@ -1,0 +1,44 @@
+package application;
+
+import java.util.Scanner;
+
+import entities.Rent;
+
+public class Aula10_Exec_Fix {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("How many rooms will be rented? ");
+		int n = sc.nextInt();
+		sc.nextLine();
+
+		Rent[] rent = new Rent[9];
+
+		for (int i = 1; i <= n; i++) {
+			System.out.printf("Rent #%d:%n", i);
+			System.out.print("Name: ");
+			String name = sc.nextLine();
+			System.out.print("Email: ");
+			String email = sc.nextLine();
+			System.out.print("Room: ");
+			int room = sc.nextInt();
+			rent[room] = new Rent(name, email, room);
+			sc.nextLine();
+			System.out.println();
+		}
+
+		System.out.println("Busy rooms: ");
+
+		for (int i = 0; i < rent.length; i++) {
+			if (rent[i] != null) {
+				System.out.println(rent[i]);
+			}
+
+		}
+
+		sc.close();
+
+	}
+
+}
